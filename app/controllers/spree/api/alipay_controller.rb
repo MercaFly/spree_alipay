@@ -13,6 +13,11 @@ module Spree
           trade_nos = out_trade_no.split('-')
           payment_number = trade_nos[1]
           payment = Spree::Payment.find_by_number(payment_number)
+
+          if payment.response_code == params[:trade_no]
+            return notify_error
+          end
+
           payment.response_code = params[:trade_no]
           payment.state = 'completed'
           payment.save
