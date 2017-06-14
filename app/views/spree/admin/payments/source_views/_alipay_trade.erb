@@ -1,0 +1,10 @@
+<fieldset data-hook="credit_card">
+  <legend><%= Spree.t(:alipay) %></legend>
+  <table class="table table-condensed table-bordered">
+    <tr>
+      <th width="20%"><%= Spree.t(:trade_no) %>:</th>
+      <td><%= payment.response_code %></td>
+    </tr>
+
+  </table>
+</fieldset>
