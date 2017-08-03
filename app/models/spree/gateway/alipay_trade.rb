@@ -54,6 +54,10 @@ module Spree
       refund(money, source, gateway_options)
     end
 
+    def void(*)
+      empty_success
+    end
+
     def set_mobile_security_url(out_trade_no, order, gateway_options={})
       raise unless preferred_pid && preferred_key && preferred_seller_email
       subject      = gateway_options[:subject] || order.number
@@ -73,7 +77,7 @@ module Spree
     end
 
     def actions
-      %w(credit)
+      %w(credit void)
     end
 
     def refund(money, source, gateway_options)
